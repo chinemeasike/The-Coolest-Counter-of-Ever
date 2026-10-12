@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Coolest Counter of Ever</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  background-color: #000000;
+  font-family: 'GoodBoy';
+  text-align: center;
+  padding-top: 80px;
+  color: #ffffff;
+}
+
+body.inverted {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.counter-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  font-size: 2rem;
+  width: 100px;
+  height: 100px;
+  background-color: #ff4f66;
+  border: 2px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+#count {
+  font-size: 3rem;
+  width: 100px;
+  height: 100px;
+  background-color: #ffb341;
+  color: rgb(255, 255, 255);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+#reset {
+  background-color: #f88;
+}
+
+#invert {
+  background-color: #88f;
+}
+
+</style>
+</head>
+<body>
+<h1>The Coolest Counter of Ever</h1>
+<div class="counter-box">
+  <button id="decrement">-</button>
+  <div id="count">0</div>
+  <button id="increment">+</button>
+  <button id="reset">reset</button>
+  <button id="invert">Invert Colors</button>
+</div>
+
+<script>
+const countEl = document.getElementById('count');
+const incrementBtn = document.getElementById('increment');
+const decrementBtn = document.getElementById('decrement');
+const resetBtn = document.getElementById('reset');
+const invertBtn = document.getElementById('invert');
+
+let count = 0;
+
+function updateCounter() {
+  countEl.textContent = count;
+}
+
+incrementBtn.addEventListener('click', () => {
+  count++;
+  updateCounter();
+});
+
+decrementBtn.addEventListener('click', () => {
+  count--;
+  updateCounter();
+});
+
+resetBtn.addEventListener('click', () => {
+  count = 0;
+  updateCounter();
+});
+
+invertBtn.addEventListener('click', () => {
+  document.body.classList.toggle('inverted');
+});
+
+updateCounter();
+</script>
+
+</body>
+</html>
+
